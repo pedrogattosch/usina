@@ -1,6 +1,6 @@
-# Sistema para Controle de Fluxo na Usina do Conhecimento
+# Controle de Fluxo - Usina do Conhecimento
 
-Este projeto implementa um sistema de contagem de pessoas utilizando Visão Computacional com o Raspberry Pi 4 Model B. Os dados de entrada e saída são armazenados em um banco de dados local e visualizados em tempo real através de um dashboard.
+Este projeto implementa um sistema de contagem de pessoas utilizando visão computacional com o Raspberry Pi 4 Model B. Os dados de entrada e saída são armazenados em um banco de dados local e visualizados em tempo real através de um dashboard.
 
 ## Passo a passo para execução
 
