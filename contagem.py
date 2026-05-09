@@ -37,7 +37,7 @@ fgbg = cv2.createBackgroundSubtractorMOG2(history=500, varThreshold=50, detectSh
 
 entradas = 0
 saidas = 0
-linha_y = 240 
+linha_y = 240
 rastreadores = {}
 proximo_id = 0
 
@@ -72,31 +72,31 @@ try:
         for cx, cy, x, y, w, h in centros_atuais:
             rastreado = False
             for id_obj, (ant_cx, ant_cy) in rastreadores.items():
-                
+
                 # Se moveu menos de 60 pixels, assume que é o mesmo objeto
                 if math.hypot(cx - ant_cx, cy - ant_cy) < 60:
                     novos_rastreadores[id_obj] = (cx, cy)
                     rastreado = True
-                    
+
                     # Lógica de cruzamento da linha
                     if ant_cy < linha_y and cy >= linha_y:
                         entradas += 1
                         registrar_evento('Entrada')
                         cv2.line(frame, (0, linha_y), (640, linha_y), (0, 255, 0), 5) # Pisca verde
                         print(f"[{datetime.now().strftime('%H:%M:%S')}] Entrada detectada! Total entradas: {entradas}")
-                        
+
                     elif ant_cy > linha_y and cy <= linha_y:
                         saidas += 1
                         registrar_evento('Saida')
                         cv2.line(frame, (0, linha_y), (640, linha_y), (0, 0, 255), 5) # Pisca vermelho
                         print(f"[{datetime.now().strftime('%H:%M:%S')}] Saida detectada! Total saidas: {saidas}")
-                    
+
                     # Desenha o retângulo em volta da pessoa e o ID
                     cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                     cv2.circle(frame, (cx, cy), 5, (0, 0, 255), -1)
                     cv2.putText(frame, f"ID: {id_obj}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
                     break
-            
+
             # Se for um objeto novo
             if not rastreado:
                 novos_rastreadores[proximo_id] = (cx, cy)
@@ -116,6 +116,6 @@ try:
 
 finally:
     print("Encerrando o sistema...")
-    conn.close() 
+    conn.close()
     cv2.destroyAllWindows()
     picam2.stop()
