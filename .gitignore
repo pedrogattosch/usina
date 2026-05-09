@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+venv/
+
+*.db
+*.sqlite
+*.sqlite3
+
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+*.pt
