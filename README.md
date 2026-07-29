@@ -1,6 +1,6 @@
 🏗️ Projeto em desenvolvimento...
 
-# Controle de Fluxo - Usina do Conhecimento
+# Sistema de controle de fluxo da Usina do Conhecimento
 
 Sistema de contagem de pessoas com visão computacional para a Usina do Conhecimento. O projeto registra entradas e saídas em banco SQLite e disponibiliza visualização dos dados em dashboard.
 
